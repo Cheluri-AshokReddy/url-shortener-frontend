@@ -14,7 +14,8 @@ function shortenURL() {
     .then(res => res.json())
     .then(data => {
       if (data.shortUrl) {
-        const short = data.shortUrl;
+        const shortcode = data.shortUrl.split('/').pop();  // just get code part
+        const short = `https://url-shortener-lxlb.onrender.com/${shortcode}`;
         document.getElementById('result-container').style.display = 'block';
         document.getElementById('shortenedLink').href = short;
         document.getElementById('shortenedLink').textContent = short;
@@ -27,19 +28,4 @@ function shortenURL() {
       console.error(err);
       alert('Something went wrong!');
     });
-}
-
-function copyToClipboard() {
-  const text = document.getElementById('shortenedLink').textContent;
-  navigator.clipboard.writeText(text).then(() => {
-    alert('Copied to clipboard!');
-  });
-}
-
-function updateHistory(newLink) {
-  const list = document.getElementById('history');
-  const li = document.createElement('li');
-  li.innerHTML = `<a href="${newLink}" target="_blank">${newLink}</a>`;
-  list.prepend(li);
-  if (list.children.length > 2) list.removeChild(list.lastChild);
 }
