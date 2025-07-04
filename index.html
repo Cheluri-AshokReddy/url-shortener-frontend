@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OroCorp URL Shortener</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div id="welcome">Welcome To</div>
+    <div id="company">OroCorp Technologies Private Limited</div>
+
+    <h2>Mini URL Shortener</h2>
+
+    <div class="input-group">
+      <input type="text" id="urlInput" placeholder="Paste your long URL here..." />
+      <button id="shortenBtn" onclick="shortenURL()">Shorten</button>
+    </div>
+
+    <div id="result-container" style="display: none;">
+      <p>Shortened URL: <a id="shortenedLink" href="#" target="_blank"></a></p>
+      <button id="copyBtn" onclick="copyToClipboard()">Copy</button>
+    </div>
+
+    <h3>🔁 Last 2 Shortened URLs</h3>
+    <ul id="history"></ul>
+
+    <div class="footer-note">
+      <p>Want to know more about the company? 
+        <a href="https://orocorp.in" target="_blank">Visit OroCorp</a>
+      </p>
+    </div>
+
+    <div class="footer-copy">
+      © 2025 OroCorp · Developed by 
+      <a href="https://www.linkedin.com/in/ashokreddycheluri-740603235/" target="_blank">Ashok Reddy</a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
