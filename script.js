@@ -6,10 +6,10 @@ function shortenURL() {
     return;
   }
 
-  fetch('http://localhost:5000/shorten', {
+  fetch('https://url-shortener-lxlb.onrender.com/shorten', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ url: encodeURI(url) }), 
+    body: JSON.stringify({ url: encodeURI(url) }),
   })
     .then(res => res.json())
     .then(data => {
@@ -29,19 +29,17 @@ function shortenURL() {
     });
 }
 
-  
-  function copyToClipboard() {
-    const text = document.getElementById('shortenedLink').textContent;
-    navigator.clipboard.writeText(text).then(() => {
-      alert('Copied to clipboard!');
-    });
-  }
-  
-  function updateHistory(newLink) {
-    const list = document.getElementById('history');
-    const li = document.createElement('li');
-    li.innerHTML = `<a href="${newLink}" target="_blank">${newLink}</a>`;
-    list.prepend(li);
-    if (list.children.length > 2) list.removeChild(list.lastChild);
-  }
-  
+function copyToClipboard() {
+  const text = document.getElementById('shortenedLink').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    alert('Copied to clipboard!');
+  });
+}
+
+function updateHistory(newLink) {
+  const list = document.getElementById('history');
+  const li = document.createElement('li');
+  li.innerHTML = `<a href="${newLink}" target="_blank">${newLink}</a>`;
+  list.prepend(li);
+  if (list.children.length > 2) list.removeChild(list.lastChild);
+}
